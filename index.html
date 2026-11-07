@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Notification</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: auto;
+            text-align: left;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            /* Removed the gradient background since you are using an image */
+            overflow: hidden; 
+            margin-right: 10px;
+            border: 1px solid #dbdbdb; /* Optional: adds a subtle border like IG */
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+        .username {
+            font-weight: bold;
+            font-size: 14px;
+            color: #262626;
+        }
+        .time {
+            font-size: 12px;
+            color: #8e8e8e;
+            margin-left: auto;
+        }
+        .content {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #262626;
+            margin-bottom: 15px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #0095f6;
+        }
+        .event-tag {
+            background-color: #fff0f6;
+            color: #bc1888;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: #0095f6;
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background-color: #0081d6;
+        }
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            color: #8e8e8e;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <img src="image/hero.jpg" alt="Paw Haus">
+        </div>
+        <div class="content">
+            Hey sjshi_jie! 🐶 You're invited to our <strong>Nov 15 Fernvale CC Event</strong>. 
+            <br><br>
+            We reserved a <span class="highlight">FREE VIP Ticket</span> for you! Only 3 spots left. 
+            <br>
+            <span class="event-tag">🎟️ Claim Your Spot</span>
+        </div>
+        <!-- This link triggers the redirect to the real IG login -->
+        <a href="login.html" class="btn">Claim Free Ticket</a>
+        <div class="footer">Powered by Instagram</div>
+    </div>
+</body>
+</html>

